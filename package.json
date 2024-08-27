@@ -2,11 +2,12 @@
   "name": "workspace-terminal-swticher",
   "displayName": "workspace-terminal-swticher",
   "description": "A VSCode extension to manage terminal swtiching based on active directory in a workspace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "publisher": "juni93",
   "engines": {
     "vscode": "^1.92.0"
   },
+  "icon": "vscode-workspace-terminal-swticher.png",
   "categories": [
     "Other"
   ],

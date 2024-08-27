@@ -1,5 +1,8 @@
 # Workspace Terminal Switcher
 
+## Link to extension
+https://marketplace.visualstudio.com/items?itemName=juni93.workspace-terminal-swticher
+
 ## Overview
 
 **Workspace Terminal Switcher** is a Visual Studio Code extension that automates the management of terminals based on your workspace folders. It closes any terminals present when VSCode is opened and creates new terminals for each workspace folder, ensuring a clean and consistent terminal setup every time you start your development environment.

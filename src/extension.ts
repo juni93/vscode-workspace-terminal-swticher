@@ -1,6 +1,7 @@
 import * as vscode from "vscode";
 
-let terminals: { [key: string]: vscode.Terminal } = {}; 
+let terminals: { [key: string]: vscode.Terminal } = {};
+let currentActiveFolder: string | undefined; // Track the current active folder
 
 export function activate(context: vscode.ExtensionContext) {
   // Close all existing terminals when VSCode opens
@@ -32,18 +33,21 @@ export function activate(context: vscode.ExtensionContext) {
         true
       );
 
-      if (switchTerminalOnClick && editor) {
+      if (switchTerminalOnClick && editor && vscode.workspace.workspaceFolders) {
         const workspaceFolder = vscode.workspace.getWorkspaceFolder(
           editor.document.uri
         );
         if (workspaceFolder) {
-          const activeTerminal = vscode.window.activeTerminal;
+          const folderPath = workspaceFolder.uri.fsPath;
 
-          // Only switch the terminal if it was created by the extension
-          if (activeTerminal && isExtensionManagedTerminal(activeTerminal)) {
-            activeTerminal.sendText(`cd ${workspaceFolder.uri.fsPath}`);
-            activeTerminal.show(true);
-            activeTerminal.sendText('');
+          // Only switch the terminal if the active folder has changed
+          if (currentActiveFolder !== folderPath) {
+            const terminal = terminals[folderPath];
+
+            if (terminal) {
+              terminal.show(true);
+              currentActiveFolder = folderPath; // Update the active folder
+            }
           }
         }
       }

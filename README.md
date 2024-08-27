@@ -60,7 +60,7 @@ Contributions are welcome! If you have suggestions for new features or improveme
 
 ## License
 
-This extension is licensed under the [MIT License](https://github.com/juni93/vscode-workspace-terminal-swticher?tab=MIT-1-ov-file).
+This extension is licensed under the [MIT License](https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt).
 
 ## Acknowledgments
 
